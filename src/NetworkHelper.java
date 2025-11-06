@@ -23,8 +23,12 @@ public class NetworkHelper {
     public void GetIpFromDomain(){
         try{
             address = InetAddress.getByName(this.getHostName());
-            ShowMsg(address.getHostName());
-            ShowMsg(address.getHostAddress());
+            if (address.isReachable(5000)) {
+                ShowMsg(address.getHostName());
+                ShowMsg(address.getHostAddress());
+            }
+            else
+                ShowMsg("Website không thể truy cập !");
         }
         catch (Exception e){
             System.out.println("Error : " + e.getMessage());
@@ -44,6 +48,7 @@ public class NetworkHelper {
             throw new RuntimeException(e);
         }
     }
+
     public void ShowMsg(String msg){
         System.out.println(msg);
     }
