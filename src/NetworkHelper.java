@@ -24,11 +24,13 @@ public class NetworkHelper {
         try{
             address = InetAddress.getByName(this.getHostName());
             if (address.isReachable(5000)) {
-                ShowMsg(address.getHostName());
-                ShowMsg(address.getHostAddress());
+                ShowMsg("IP :" + address.getHostName());
+                ShowMsg("Ten mien :" + address.getHostAddress());
+                ShowMsg("May chu ket noi on dinh");
+
             }
             else
-                ShowMsg("Website không thể truy cập !");
+                ShowMsg("May chu khong the ket noi");
         }
         catch (Exception e){
             System.out.println("Error : " + e.getMessage());
